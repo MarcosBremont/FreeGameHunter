@@ -32,6 +32,7 @@
     <TabBar>
         <ShellContent Title="XboxGames" Icon="xboxlogo.png" Route="XboxGames" ContentTemplate="{DataTemplate local:XboxGames}" />
         <ShellContent Title="PlaystationGames" Icon="playstationlogo.png" ContentTemplate="{DataTemplate local:PlaystationGames}" />
+        <!--<ShellContent Title="EpicGames" Icon="EpicG.png" ContentTemplate="{DataTemplate local:EpicGames}" />-->
     </TabBar>
 
     <!--

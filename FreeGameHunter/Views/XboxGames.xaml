@@ -4,26 +4,36 @@
              x:Class="FreeGameHunter.Views.XboxGames"
              xmlns:vm="clr-namespace:FreeGameHunter.ViewModels"
              Title="Xbox Free Games">
-    <StackLayout VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,0">
-        <ListView VerticalOptions="FillAndExpand" x:Name="lsv_imagenes" Grid.Row="0" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" SeparatorVisibility="Default"  SeparatorColor="#18356F" HasUnevenRows="True" >
+    <StackLayout VerticalOptions="FillAndExpand" Grid.Row="0" Grid.Column="0" Orientation="Vertical" Margin="0,0,0,0" BackgroundColor="#272639">
+
+        <SearchBar x:Name="JuegosSearchBar"  
+                       TextTransform="Uppercase"
+                       Placeholder="Buscar Juegos"
+                   TextChanged="JuegosSearchBar_TextChanged"
+                 BackgroundColor="#FFFFFF"/>
+        
+        <ListView VerticalOptions="FillAndExpand" x:Name="lsv_imagenes" Grid.Row="0" SeparatorColor="White" BackgroundColor="Transparent" HorizontalOptions="CenterAndExpand" SeparatorVisibility="None" HasUnevenRows="True" >
             <ListView.ItemTemplate>
 
                 <DataTemplate>
 
-                    <ViewCell>
-                        <StackLayout>
+                    <ViewCell Height="150">
 
-                            <StackLayout Margin="5,0,0,5"  VerticalOptions="Center" Orientation="Horizontal">
-                                <Image HeightRequest="150" HorizontalOptions="Start" Source="{Binding urlfoto}" />
-                                <Label Margin="0,15,0,0" FontAttributes="Bold" TextColor="#77BB44" FontSize="18" Text="{Binding nombrejuego}" />
+                        <StackLayout Margin="10">   
+                            <StackLayout>
 
-                            </StackLayout>
+                                    <StackLayout Margin="5,0,0,5"  VerticalOptions="Center" Orientation="Horizontal">
+                                        <Image HeightRequest="150" WidthRequest="150" HorizontalOptions="Start" Source="{Binding urlfoto}" />
+                                        <StackLayout Orientation="Vertical">
+                                        <Label Margin="0,15,0,0" FontAttributes="Bold" TextColor="#77BB44" FontSize="18" Text="{Binding nombrejuego}" />
+                                            <Frame HorizontalOptions="Start" Padding="10" BackgroundColor="#77BB44">
+                                                <Label Margin="0,0,0,0" FontAttributes="Bold" TextColor="White" FontSize="14" Text="Gratis" />
+                                            </Frame>
+                                        </StackLayout>
+                                    </StackLayout>
 
-                            <StackLayout Orientation="Vertical">
-                                <Frame BackgroundColor="#77BB44">
-                                    <Label Margin="0,0,0,0" FontAttributes="Bold" TextColor="White" FontSize="18" Text="Gratis" />
-                                </Frame>
-                            </StackLayout>
+                                
+                                </StackLayout>
                         </StackLayout>
                     </ViewCell>
 

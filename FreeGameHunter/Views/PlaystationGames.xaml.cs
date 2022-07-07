@@ -1,4 +1,5 @@
-﻿using FreeGameHunter.Models;
+﻿using Acr.UserDialogs;
+using FreeGameHunter.Models;
 using FreeGameHunter.Models.Entidades;
 using FreeGameHunter.ViewModels;
 using FreeGameHunter.Views;
@@ -17,6 +18,7 @@ namespace FreeGameHunter.Views
     public partial class PlaystationGames : ContentPage
     {
         ItemsViewModel _viewModel;
+        List<EJuegos> Playstation = new List<EJuegos>();
 
         public PlaystationGames()
         {
@@ -34,7 +36,7 @@ namespace FreeGameHunter.Views
 
         public void ObtenerJuegosDePS()
         {
-            List<EJuegos> prueba = new List<EJuegos>();
+
             HtmlWeb web = new HtmlWeb();
             HtmlDocument document = web.Load("https://psdeals.net/us-store/collection/free_to_play?platforms=ps4");
             HtmlNodeCollection imgs = new HtmlNodeCollection(document.DocumentNode.ParentNode);
@@ -44,10 +46,17 @@ namespace FreeGameHunter.Views
             {
                 HtmlAttribute texttt = text.Attributes["alt"];
                 HtmlAttribute src = text.Attributes[@"data-src"];
-                prueba.Add(new EJuegos() { nombrejuego = texttt.Value, urlfoto = src.Value });
+                Playstation.Add(new EJuegos() { nombrejuego = texttt.Value, urlfoto = src.Value });
             }
 
-            lsv_imagenes.ItemsSource = prueba;
+            lsv_imagenes.ItemsSource = Playstation;
+
+        }
+
+        private void JuegosSearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var JuegosMenu = Playstation.Where(c => c.nombrejuego.Contains(JuegosSearchBar.Text.ToUpper()));
+            lsv_imagenes.ItemsSource = JuegosMenu;
         }
     }
 }
