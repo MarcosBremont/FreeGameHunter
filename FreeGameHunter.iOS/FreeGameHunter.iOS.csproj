@@ -157,4 +157,13 @@
       <Name>FreeGameHunter</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xbox.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xbox%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\xbox%403x.png" />
+  </ItemGroup>
 </Project>
