@@ -21979,7 +21979,10 @@ namespace FreeGameHunter.Droid
 			public const int xamarin_logo = 2131165341;
 			
 			// aapt resource value: 0x7F07009E
-			public const int xboxlogo = 2131165342;
+			public const int xbox = 2131165342;
+			
+			// aapt resource value: 0x7F07009F
+			public const int xboxlogo = 2131165343;
 			
 			static Drawable()
 			{
