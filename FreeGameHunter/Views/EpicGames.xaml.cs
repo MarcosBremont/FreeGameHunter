@@ -37,28 +37,28 @@ namespace FreeGameHunter.Views
             string prueba1 = "";
             List<EJuegos> prueba = new List<EJuegos>();
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load("https://store.steampowered.com/search/?sort_by=Released_DESC&maxprice=free&genre=Free+to+Play");
+            HtmlDocument document = web.Load("https://www.juegosdelmes.com/juegos-regalo");
             HtmlNodeCollection imgs = new HtmlNodeCollection(document.DocumentNode.ParentNode);
-            imgs = document.DocumentNode.SelectNodes("//span[@class='title']");
+            imgs = document.DocumentNode.SelectNodes("//div[@class='GameCover_gameCover__3cBgu GameCover_clickable__2Qqk-']");
 
             foreach (HtmlNode text in imgs)
             {
                 string textttttt = text.InnerText;
-                //HtmlAttribute texttt = text.Attributes["alt"];
-                //HtmlAttribute src = text.Attributes[@"src"];
-                prueba.Add(new EJuegos() { nombrejuego = textttttt/* urlfoto = "https://freegames.codes" + src.Value */ });
-            }
-
-
-            imgs = document.DocumentNode.SelectNodes("//img[@class='col search_capsule']");
-
-            foreach (HtmlNode text in imgs)
-            {
-                //string textttttt = text.InnerText;
-                //HtmlAttribute texttt = text.Attributes["alt"];
+                HtmlAttribute texttt = text.Attributes["alt"];
                 HtmlAttribute src = text.Attributes[@"src"];
-                prueba.Add(new EJuegos() { urlfoto = src.Value });
+                prueba.Add(new EJuegos() {urlfoto = src.Value });
             }
+
+
+            //imgs = document.DocumentNode.SelectNodes("//img[@class='col search_capsule']");
+
+            //foreach (HtmlNode text in imgs)
+            //{
+            //    //string textttttt = text.InnerText;
+            //    //HtmlAttribute texttt = text.Attributes["alt"];
+            //    HtmlAttribute src = text.Attributes[@"src"];
+            //    prueba.Add(new EJuegos() { urlfoto = src.Value });
+            //}
             lsv_imagenes.ItemsSource = prueba;
 
         }
