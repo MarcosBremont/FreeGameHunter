@@ -97,9 +97,6 @@
     <AndroidResource Include="Resources\drawable\playstationlogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\drawable\xboxlogo.png" />
-  </ItemGroup>
-  <ItemGroup>
     <AndroidResource Include="Resources\drawable\EpicGames.png" />
   </ItemGroup>
   <ItemGroup>
